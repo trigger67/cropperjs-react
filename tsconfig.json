@@ -24,7 +24,7 @@
     "declaration": true,
     "declarationDir": "./dist",
     "paths": {
-      "cropperjs-react": ["./src"]
+      "cropperjs-react-wrapper": ["./src"]
     }
   },
   "include": ["src", "example", "src/types.d.ts"],

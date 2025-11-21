@@ -7,7 +7,7 @@ export default defineConfig({
   root: 'example',
   resolve: {
     alias: {
-      'cropperjs-react': resolve(__dirname, 'src'),
+      'cropperjs-react-wrapper': resolve(__dirname, 'src'),
     },
   },
   server: {

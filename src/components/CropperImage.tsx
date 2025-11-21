@@ -17,6 +17,7 @@ export interface CropperImageProps
   scalable?: boolean;
   skewable?: boolean;
   translatable?: boolean;
+  onReady?: (image: CropperImageElement) => void;
 }
 
 export const CropperImage = forwardRef<CropperImageElement, CropperImageProps>(
@@ -29,13 +30,28 @@ export const CropperImage = forwardRef<CropperImageElement, CropperImageProps>(
       scalable,
       skewable,
       translatable,
+      onReady,
       ...rest
     },
     ref,
   ) => {
     const elementRef = useRef<CropperImageElement>(null);
 
-    useImperativeHandle(ref, () => elementRef.current!, []);
+    useImperativeHandle(
+      ref,
+      () => elementRef.current as CropperImageElement,
+      [],
+    );
+
+    // Handle ready event
+    useEffect(() => {
+      const element = elementRef.current;
+      if (!element || !onReady) return;
+
+      setTimeout(() => {
+        onReady(element);
+      }, 0);
+    }, [onReady]);
 
     // Update props
     useEffect(() => {
@@ -53,7 +69,13 @@ export const CropperImage = forwardRef<CropperImageElement, CropperImageProps>(
 
     return (
       // @ts-expect-error
-      <cropper-image ref={elementRef} {...rest} />
+      <cropper-image
+        ref={elementRef}
+        src={src}
+        alt={alt}
+        crossorigin={crossOrigin}
+        {...rest}
+      />
     );
   },
 );

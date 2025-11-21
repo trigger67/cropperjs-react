@@ -17,7 +17,11 @@ export const CropperShade = forwardRef<CropperShadeElement, CropperShadeProps>(
   ({ themeColor, ...rest }, ref) => {
     const elementRef = useRef<CropperShadeElement>(null);
 
-    useImperativeHandle(ref, () => elementRef.current!, []);
+    useImperativeHandle(
+      ref,
+      () => elementRef.current as CropperShadeElement,
+      [],
+    );
 
     // Update props
     useEffect(() => {

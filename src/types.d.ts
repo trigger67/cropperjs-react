@@ -71,6 +71,8 @@ declare global {
         ref?: import('react').RefObject<import('cropperjs').CropperGrid | null>;
         columns?: number;
         rows?: number;
+        bordered?: boolean;
+        covered?: boolean;
         'theme-color'?: string;
       };
       'cropper-crosshair': import('react').DetailedHTMLProps<
@@ -80,6 +82,7 @@ declare global {
         ref?: import('react').RefObject<
           import('cropperjs').CropperCrosshair | null
         >;
+        centered?: boolean;
         'theme-color'?: string;
       };
     }

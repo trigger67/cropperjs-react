@@ -21,7 +21,11 @@ export const CropperHandle = forwardRef<
 >(({ action, plain, themeColor, ...rest }, ref) => {
   const elementRef = useRef<CropperHandleElement>(null);
 
-  useImperativeHandle(ref, () => elementRef.current!, []);
+  useImperativeHandle(
+    ref,
+    () => elementRef.current as CropperHandleElement,
+    [],
+  );
 
   // Update props
   useEffect(() => {

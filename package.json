@@ -1,6 +1,21 @@
 {
-  "name": "cropperjs-react",
+  "name": "cropperjs-react-wrapper",
   "version": "0.0.1",
+  "description": "A React wrapper for Cropper.js 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trigger67/cropperjs-react-wrapper.git"
+  },
+  "keywords": [
+    "react",
+    "cropperjs",
+    "cropper",
+    "image-cropper",
+    "image-editor",
+    "web-components"
+  ],
+  "author": "Trigger",
+  "license": "MIT",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
